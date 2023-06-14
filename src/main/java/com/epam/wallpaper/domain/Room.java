@@ -15,7 +15,7 @@ public class Room {
     private double min(double a, double b, double c) {
         double min = a;
         if(Double.compare(min, b) > 0) min = b;
-        if(Double.compare(min, b) > 0) min = c;
+        if(Double.compare(min, c) > 0) min = c;
         return min;
     }
 
