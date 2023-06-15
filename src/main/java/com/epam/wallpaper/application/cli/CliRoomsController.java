@@ -1,42 +1,32 @@
 package com.epam.wallpaper.application.cli;
 
-import com.epam.wallpaper.domain.Room;
 import com.epam.wallpaper.domain.service.RoomsService;
+import com.epam.wallpaper.domain.service.RoomsServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
-
+@Slf4j
 @Controller
 public class CliRoomsController {
     private final RoomsService roomsService;
 
     @Autowired
-    public CliRoomsController(RoomsService roomsService) {
-        this.roomsService = roomsService;
+    public CliRoomsController(RoomsService roomsServiceImpl) {
+        this.roomsService = roomsServiceImpl;
     }
 
     public void getTotalWallpaper() {
-        System.out.println("Number of total square feet of wallpaper: " +
-                roomsService.getTotalWallpaperSurface());
-        System.out.println("\n");
+        log.info("Number of total square feet of wallpaper: {}", roomsService.getTotalWallpaperSurface());
     }
 
     public void getCubicShapeRooms() {
-        System.out.println("Rooms from input that have a cubic shape (order by total needed wallpaper descending): ");
-        List<Room> rooms = roomsService.getCubicRooms();
-        for(Room room: rooms) {
-            System.out.println(room);
-        }
-        System.out.println("\n");
+        log.info("Rooms from input that have a cubic shape (order by total needed wallpaper descending): ");
+        roomsService.getCubicRoomsList().forEach(room -> log.info("Cubic shape room entry: {}", room));
     }
 
     public void getDuplicateRooms() {
-        System.out.println("Rooms from input that are appearing more than once:");
-        List<Room> duplicateRooms = roomsService.getDuplicateRooms();
-        for(Room room: duplicateRooms) {
-            System.out.println(room);
-        }
-        System.out.println("\n");
+        log.info("Rooms from input that are appearing more than once: ");
+        roomsService.getDuplicateRoomsList().forEach(room -> log.info("Duplicate room entry: {}", room));
     }
 }
