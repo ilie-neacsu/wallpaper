@@ -1,4 +1,4 @@
-# Wallpaper (Interview Homework Project)
+# Wallpaper (Interview Project)
 
 This is the implementation of a homework project that was part of the interviewing process with [GSCF](https://www.gscf.com/).
 
