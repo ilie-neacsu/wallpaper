@@ -1,17 +1,6 @@
+# Wallpaper (Interview Homework Project)
 
-> Dear Candidate,
->
-> Below there is a java task which we would like you to solve. From a solution we expect code that is:    
->     • compiling    
->     • proven to be correct   
->     • clean and easy to read    
->     • well-structured (following good practices)
->
-> You can use any library and java version you want.
->
-> We wish you good luck!
-
----
+This is the implementation of a homework project that was part of the interviewing process with [GSCF](https://www.gscf.com/).
 
 # Task
 
